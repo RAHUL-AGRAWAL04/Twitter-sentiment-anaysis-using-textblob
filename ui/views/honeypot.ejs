@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+
+
+<div class="container center">
+  
+<br>
+  <div class="center">
+    <h2>Enter Input</h2>
+    <form action="/search" method="POST">
+      <input type="text" name="topic" class="input" id="topic" placeholder="Topic of Tweets" />
+      <input type="number" name="count" class="input" id="count" placeholder="No of tweets" />
+      <button type="submit" class="btnn">CHECK</button>
+    </form>
+  </div>
+  <br><br><br><br>
+
+  <div class="center">
+    
+    <div class="display">
+      <div class="card">
+        <h5 class="card-header"></h5>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"><b>DATE</b></th>
+                <th scope="col"><b>USER</b></th>
+                <th scope="col"><b>IS_VARIFIED</b></th>
+                <th scope="col"><b>TWEET</b> </th>
+                <th scope="col"><b>LIKES</b> </th>
+                <th scope="col"><b>RE-TWEETS</b> </th>
+                <th scope="col"><b>CLEAN TWEETS</b> </th>
+                <th scope="col"><b>SENTIMENT</b> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(i in data) { %>
+              <tr>
+                <td><%= data[i]["Date"] %></td>
+                <td><%= data[i]["User"] %></td>
+                <td><%= data[i]["IsVerified"] %></td>
+                <td><%= data[i]["Tweet"] %></td>
+                <td><%= data[i]["Likes"] %></td>
+                <td><%= data[i]["RT"] %></td>
+                <td><%= data[i]["clean_tweet"] %></td>
+                <td><%= data[i]["Sentiment"] %></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
